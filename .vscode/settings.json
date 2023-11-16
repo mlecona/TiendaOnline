@@ -1,0 +1,12 @@
+{
+  "python.analysis.typeCheckingMode": "basic",
+  "cSpell.words": [
+    "django",
+    "djangorestframework",
+    "electronico",
+    "postgres",
+    "postgresql",
+    "psycopg",
+    "Usuariosapp"
+  ]
+}

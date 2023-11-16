@@ -1,0 +1,15 @@
+# cSpell:disable
+SECRET_KEY = 'django-insecure-r6*db0#)ruovquf44&qh7#4ih11b4a)kklbt)i*49h30eug&kc'
+DEBUG=True
+# cSpell:eneble
+DB_NAME=paginaWeb
+DB_USER=postgres
+DB_PASSWORD=12345
+DB_DATABASE_PORT=5432
+ALLOWED_HOSTS=127.0.0.1, localhost
+
+EMAIL_PORT=465
+#EMAIL_PORT=587
+EMAIL_USE_SSL=True
+EMAIL_HOTS_USER = "marco.lecona.2@gmail.com"
+EMAIL_HOST_PASSWORD = "durheegyfcxjmqjf"

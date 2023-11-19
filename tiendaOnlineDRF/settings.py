@@ -44,7 +44,9 @@ BASE_APPS = [
 LOCAL_APPS = [
     # aplicaciones del proyecto
     'tiendaOnlineDRF',
+    'Apps.baseApp',
     'Apps.usuariosApp',
+    'Apps.productsApp'
 ]
 
 THIRD_APPS = [

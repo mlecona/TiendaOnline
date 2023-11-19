@@ -1,12 +1,19 @@
 {
   "python.analysis.typeCheckingMode": "basic",
   "cSpell.words": [
+    "Baseapp",
+    "descount",
+    "deteled",
     "django",
     "djangorestframework",
     "electronico",
     "postgres",
     "postgresql",
+    "Productsapp",
     "psycopg",
-    "Usuariosapp"
+    "Retrive",
+    "Usuariosapp",
+    "viewset",
+    "viewsets"
   ]
 }

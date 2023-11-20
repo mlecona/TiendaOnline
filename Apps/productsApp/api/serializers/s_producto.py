@@ -4,20 +4,8 @@ from Apps.productsApp.models import Product
 from Apps.productsApp.api.serializers.s_general import MeasureUnitSerializer, CategoryProductSerializer
 
 
-
 class ProductSerializer(serializers.ModelSerializer):
-    # 1er Forma
-    #measure_unit = MeasureUnitSerializer()
-    #category_product = CategoryProductSerializer()
-    # 2da Forma depende de lo que se puso en str del modelo
-    #measure_unit = serializers.StringRelatedField()
-    #category_product = serializers.StringRelatedField()
-    """
-    def validate_imagen(self, imagen):
-        if imagen != "":
-            return imagen
-        return ""
-    """
+    
     class Meta:
         model = Product
         exclude = ('state', 'create_date', 'deleted_date', 'modified_date',)

@@ -11,9 +11,11 @@
     "postgresql",
     "Productsapp",
     "psycopg",
+    "redoc",
     "Retrive",
     "Usuariosapp",
     "viewset",
-    "viewsets"
+    "viewsets",
+    "yasg"
   ]
 }

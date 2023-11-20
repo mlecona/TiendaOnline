@@ -1,0 +1,8 @@
+Django==4.2.7
+django-simple-history==3.4.0
+djangorestframework==3.14.0
+Pillow==10.1.0
+postgres==4.0
+psycopg2-binary==2.9.9
+psycopg2-pool==1.1
+python-decouple==3.8

@@ -50,10 +50,9 @@ LOCAL_APPS = [
 ]
 
 THIRD_APPS = [
-    # Django Rest Framework
-    'rest_framework',
-    # Historial de usuarios
-    'simple_history',
+    'rest_framework',   # Django Rest Framework
+    'simple_history',   # Historial de usuarios
+    'drf_spectacular',   # Swagger
 ]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
@@ -150,3 +149,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Swagger
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+# Swagger
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Documentación API Tienda OnLine',
+    'DESCRIPTION': 'Documentación de API Tienda Online',
+    'VERSION': 'v0.1',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}

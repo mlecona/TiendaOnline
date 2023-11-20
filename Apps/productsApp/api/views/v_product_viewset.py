@@ -1,10 +1,15 @@
+""" Aplicación de Productos"""
+
 from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.response import Response
+from drf_spectacular.utils import extend_schema
 
 from Apps.productsApp.api.serializers.s_producto import ProductSerializer
 
-class ProductViewSet(viewsets.ModelViewSet):
+class ProductViewSet(viewsets.GenericViewSet):
+    """ Clase Para Procesar Productos """
+    
     serializer_class = ProductSerializer
     queryset = ProductSerializer.Meta.model.objects.filter(state = True)
 
@@ -14,11 +19,16 @@ class ProductViewSet(viewsets.ModelViewSet):
         else:
             return self.get_serializer().Meta.model.objects.filter(id = pk, state = True).first()
 
+    @extend_schema(responses=ProductSerializer)
     def list(self, request):
+        """ Listado de Productos """
+        
         product_serializer = self.get_serializer(self.get_queryset(), many = True)
         return Response(product_serializer.data, status=status.HTTP_200_OK)
     
     def create(self, request):
+        """ Creación de nuevos Productos """
+        
         serializer = self.serializer_class(data = request.data)
         if serializer.is_valid():
             serializer.save()
@@ -26,6 +36,7 @@ class ProductViewSet(viewsets.ModelViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def update(self, request, pk=None):
+        """ Actualización de Productos existentes """
         if self.get_queryset(pk):
             # send information to serializer reference instance
             product_serializer = self.serializer_class(self.get_queryset(pk), data = request.data) 
@@ -34,7 +45,9 @@ class ProductViewSet(viewsets.ModelViewSet):
                 return Response(product_serializer.data, status=status.HTTP_200_OK)
             return Response(product_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def destroys(self, request, pk=None):
+    def delete(self, request, pk=None):
+        """ Eliminación de Productos """
+        
         product = self.get_queryset().filter(id = pk).first()
         if product:
             product.state = False

@@ -1,0 +1,12 @@
+Token: 1kdsi5522234hhjlk2jlk235lkl2352sddsws
+JWT: JSON WEB TOKEN: RFC 7519: CLAIMS : REQUEST
+                    FIRMA DIGITAL: RFC 7515
+                    GENERAR UTILIZANDO CLAVES SIMETRICAS
+                    GENERAR UTILIZANDO CLAVES ASIMETRICAS
+                DATOS CIFRADOS: CONTIENE DATOS SENSIBLES (Seleccionable, NO se deben colocar contraseñas)
+ha que adicionar sesiones, permisos, etc.
+
+Ejemplo de JWT (NO esta encriptada, No esta cifrada) :
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.
+dyt0CoTl4WoVjAHI9Q_CwSKhl6d_9rhM3NrXuJttkao

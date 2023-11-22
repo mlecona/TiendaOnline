@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from Apps.usuariosApp.views import Login, Logout
 
 # Swagger
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
@@ -28,6 +29,8 @@ urlpatterns = [
     path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
     # rutas de Aplicación
     path('admin/', admin.site.urls),
+    path('', Login.as_view(), name = 'login'),
+    path('', Logout.as_view(), name = 'logout'),
     path('usuario/', include('Apps.usuariosApp.api.urls')),
-    path('', include('Apps.productsApp.api.routers')),
+    path('producto/', include('Apps.productsApp.api.routers')),
 ]

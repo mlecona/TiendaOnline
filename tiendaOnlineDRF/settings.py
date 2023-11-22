@@ -51,6 +51,7 @@ LOCAL_APPS = [
 
 THIRD_APPS = [
     'rest_framework',   # Django Rest Framework
+    'rest_framework.authtoken',
     'simple_history',   # Historial de usuarios
     'drf_spectacular',   # Swagger
 ]

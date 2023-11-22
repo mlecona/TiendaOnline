@@ -1,6 +1,7 @@
 {
   "python.analysis.typeCheckingMode": "basic",
   "cSpell.words": [
+    "authtoken",
     "Baseapp",
     "descount",
     "deteled",
@@ -17,5 +18,9 @@
     "viewset",
     "viewsets",
     "yasg"
-  ]
+  ],
+  "[python]": {
+    "editor.linkedEditing": true
+  },
+  "python.analysis.autoImportCompletions": true
 }

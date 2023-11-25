@@ -3,11 +3,12 @@
 from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.response import Response
+from Apps.usuariosApp.authentication_mixin import Authentication
 from drf_spectacular.utils import extend_schema
 
 from Apps.productsApp.api.serializers.s_producto import ProductSerializer
 
-class ProductViewSet(viewsets.GenericViewSet):
+class ProductViewSet(Authentication, viewsets.GenericViewSet):
     """ Clase Para Procesar Productos """
     
     serializer_class = ProductSerializer

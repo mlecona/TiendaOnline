@@ -54,6 +54,7 @@ THIRD_APPS = [
     'rest_framework.authtoken',
     'simple_history',   # Historial de usuarios
     'drf_spectacular',   # Swagger
+    'corsheaders', # CORS headers
 ]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
@@ -61,6 +62,7 @@ INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
 TOKEN_EXPIRED_AFTER_SECONDS = 900
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',     # CORS headers
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -91,7 +93,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tiendaOnlineDRF.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -107,7 +108,6 @@ DATABASES = {
         'HOST': config('ALLOWED_HOSTS'),
         'DATABASE_PORT': config("DB_DATABASE_PORT", cast=int)}
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -142,6 +142,21 @@ USE_TZ = True
 
 # Historial de usuarios
 AUTH_USER_MODEL = 'usuariosApp.User'
+
+CORS_ALLOWED_ORIGINS = [
+    #"https://example.com",
+    #"https://sub.example.com",
+    "http://localhost:3000",
+    #"http://127.0.0.1:9000",
+]
+
+#CORS_ALLOWED_ORIGIN_REGEXES = [
+#    r"^https://\w+\.localhost:3000$",
+#]
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

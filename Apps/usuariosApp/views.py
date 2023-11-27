@@ -6,20 +6,22 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
+from Apps.usuariosApp.authentication_mixin import Authentication
 
 # Serializador
 from Apps.usuariosApp.api.serializers.s_user import UserTokenSerializer
 
 
-class UserToken(APIView):
-
+class UserToken(Authentication, APIView):
+    """ Validate Token """
+    
     def get(self, request, *args, **kwargs):
-        username = request.GET.get('username')
+        #username = request.GET.get('username')
         try:
-            user_token = Token.objects.get(user = 
-                UserTokenSerializer().Meta.model.objects.filter(username = username).first())
-            return Response({'token': user_token.key}, 
-                                    status = status.HTTP_200_OK)
+            user_token, _ = Token.objects.get_or_create(user = self.user)
+            user = UserTokenSerializer(self.user)
+            return Response({'token': user_token.key,
+                            'user': user.data}, status = status.HTTP_200_OK)
         except:
             return Response({
                 'error': 'Credenciales enviadas incorrectas.'}, 
@@ -42,7 +44,6 @@ class Login(ObtainAuthToken):
                                     'message': 'Inicio de sesión Exitoso.'}, 
                         status = status.HTTP_200_OK)
                 else:
-                    """
                     all_sessions = Session.objects.filter(expire_date_gte = datetime.now)
                     if all_sessions.exists():
                         for session in all_sessions:
@@ -59,7 +60,8 @@ class Login(ObtainAuthToken):
                     """
                     token.delete()
                     return Response({'error': 'Ya se inicio sesión con este usuario.'}, 
-                                status = status.HTTP_409_CONFLICT)
+                                status = status.HTTP_409_CONFLICT)                     """
+
             else:
                 return Response({'error': 'Este usuario no puede iniciar sesión.'}, 
                                 status = status.HTTP_401_UNAUTHORIZED)
